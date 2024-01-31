@@ -100,60 +100,90 @@ def get_verb(quantity, tense):
     verb = random.choice(verbs)
     return verb
 
+def get_preposition():
+    """Return a randomly chosen preposition
+    from this list of prepositions:
+        "about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"
+
+    Return: a randomly chosen preposition.
+    """
+    prepositions = ["about", "above", "across", "after", "along", "around", "at", "before", "behind", "below", "beyond", "by", "despite", "except", "for", "from", "in", "into", "near", "of", "off", "on", "onto", "out", "over", "past", "to", "under", "with", "without"]
+
+    # randomly choose and return a preposition
+    preposition = random.choice(prepositions)
+    return preposition
+
+def get_prepositional_phrase(quantity):
+    """Build and return a prepositional phrase composed
+    of three words: a preposition, a determiner, and a
+    noun by calling the get_preposition, get_determiner,
+    and get_noun functions.
+
+    Parameter
+        quantity: an integer that determines if the
+            determiner and noun in the prepositional
+            phrase returned from this function should
+            be single or pluaral.
+    Return: a prepositional phrase.
+    """
+    if quantity == 1:
+        prep_noun = get_noun(quantity)
+        prep_determiner = get_determiner(quantity)
+        preposition = get_preposition()
+        prepositional_phrase = (f'{preposition} {prep_determiner} {prep_noun}.')
+        
+        return prepositional_phrase
+    elif quantity == 2:
+        prep_noun = get_noun(quantity)
+        prep_determiner = get_determiner(quantity)
+        preposition = get_preposition()
+        prepositional_phrase = (f'{preposition} {prep_determiner} {prep_noun}.')
+
+        return prepositional_phrase
+    
+def make_sentence(quantity, tense):
+    # call the different functions to retrieve the pieces of the sentence
+     determiner = get_determiner(quantity)
+     noun = get_noun(quantity)
+     verb = get_verb(quantity, tense)
+     prepositional_phrase = get_prepositional_phrase(quantity)
+     
+     # assemble the pieces into a full sentence
+     sentence = print(f'{determiner.capitalize()} {noun} {verb} {prepositional_phrase}')
+
+     return sentence
+                                
 # define main program function
+# for clarity on the integers for quantity and tense, the integers mean the following:
+# for tense, a 1 means past tense, a 2 means present tense, and a 3 means future tense
+# for quantity, a 1 means singular, a 2 means plural
 def main():
     print('\nWelcome to the Turing Test Sentence Generator!\nThe program will print 6 unique sentences.\n') 
-    # program will need to generate 6 sentences
-    sentence_count = 1 
+    sentence_count = 1
     while sentence_count < 7:
         if sentence_count == 1:
-            quantity = 1
-            tense = 1 
-            determiner = get_determiner(quantity)
-            noun = get_noun(quantity)
-            verb = get_verb(quantity, tense)
-            print(f'{determiner.capitalize()} {noun} {verb}.')
+            make_sentence(1, 1)
             sentence_count += 1
         elif sentence_count == 2:
-            quantity = 1
-            tense = 2
-            determiner = get_determiner(quantity)
-            noun = get_noun(quantity)
-            verb = get_verb(quantity, tense)
-            print(f'{determiner.capitalize()} {noun} {verb}.')
+            make_sentence(1, 2)
             sentence_count += 1
         elif sentence_count == 3:
-            quantity = 1
-            tense = 3
-            determiner = get_determiner(quantity)
-            noun = get_noun(quantity)
-            verb = get_verb(quantity, tense)
-            print(f'{determiner.capitalize()} {noun} {verb}.')
+            make_sentence(1, 3)
             sentence_count += 1
         elif sentence_count == 4:
-            quantity = 2
-            tense = 1
-            determiner = get_determiner(quantity)
-            noun = get_noun(quantity)
-            verb = get_verb(quantity, tense)
-            print(f'{determiner.capitalize()} {noun} {verb}.')
+            make_sentence(2, 1)
             sentence_count += 1
         elif sentence_count == 5:
-            quantity = 2
-            tense = 2
-            determiner = get_determiner(quantity)
-            noun = get_noun(quantity)
-            verb = get_verb(quantity, tense)
-            print(f'{determiner.capitalize()} {noun} {verb}.')
+            make_sentence(2, 2)
             sentence_count += 1
         elif sentence_count == 6:
-            quantity = 2
-            tense = 3
-            determiner = get_determiner(quantity)
-            noun = get_noun(quantity)
-            verb = get_verb(quantity, tense)
-            print(f'{determiner.capitalize()} {noun} {verb}.')
+            make_sentence(2,3)
             sentence_count += 1
-
+        
 # call and run the main function
 main()
