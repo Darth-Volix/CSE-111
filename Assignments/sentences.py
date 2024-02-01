@@ -101,7 +101,12 @@ def get_verb(quantity, tense):
     return verb
 
 def get_adjective():
-    # randomly select an adjective and return it
+    """
+    Randomly selects an adjective from a predefined list and returns it.
+
+    Returns:
+        str: A randomly chosen adjective.
+    """
     adjectives = ["uncovered", "grieving", "open", "striped", "dangerous", "nasty", "abhorrent", "lyrical", "mammoth", "encouraging", "kaput", "previous", "whimsical", "fierce", "sparkling", "cozy", "vibrant", "mysterious", "playful", "serene", "dazzling", "enchanting", "zesty", "effervescent", "exquisite", "radiant", "tranquil", "resilient", "captivating", "bountiful", "glorious", "bewitched", "charming", "vivacious"]
 
     adjective = random.choice(adjectives)
