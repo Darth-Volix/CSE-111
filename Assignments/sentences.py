@@ -100,6 +100,13 @@ def get_verb(quantity, tense):
     verb = random.choice(verbs)
     return verb
 
+def get_adjective():
+    # randomly select an adjective and return it
+    adjectives = ["uncovered", "grieving", "open", "striped", "dangerous", "nasty", "abhorrent", "lyrical", "mammoth", "encouraging", "kaput", "previous", "whimsical", "fierce", "sparkling", "cozy", "vibrant", "mysterious", "playful", "serene", "dazzling", "enchanting", "zesty", "effervescent", "exquisite", "radiant", "tranquil", "resilient", "captivating", "bountiful", "glorious", "bewitched", "charming", "vivacious"]
+
+    adjective = random.choice(adjectives)
+    return adjective
+
 def get_preposition():
     """Return a randomly chosen preposition
     from this list of prepositions:
@@ -135,14 +142,14 @@ def get_prepositional_phrase(quantity):
         prep_noun = get_noun(quantity)
         prep_determiner = get_determiner(quantity)
         preposition = get_preposition()
-        prepositional_phrase = (f'{preposition} {prep_determiner} {prep_noun}.')
+        prepositional_phrase = (f'{preposition} {prep_determiner} {prep_noun}')
         
         return prepositional_phrase
     elif quantity == 2:
         prep_noun = get_noun(quantity)
         prep_determiner = get_determiner(quantity)
         preposition = get_preposition()
-        prepositional_phrase = (f'{preposition} {prep_determiner} {prep_noun}.')
+        prepositional_phrase = (f'{preposition} {prep_determiner} {prep_noun}')
 
         return prepositional_phrase
     
@@ -151,10 +158,11 @@ def make_sentence(quantity, tense):
      determiner = get_determiner(quantity)
      noun = get_noun(quantity)
      verb = get_verb(quantity, tense)
+     adjective = get_adjective()
      prepositional_phrase = get_prepositional_phrase(quantity)
      
      # assemble the pieces into a full sentence
-     sentence = print(f'{determiner.capitalize()} {noun} {verb} {prepositional_phrase}')
+     sentence = print(f'{determiner.capitalize()} {adjective} {noun} {verb} {prepositional_phrase}.')
 
      return sentence
                                 
@@ -162,28 +170,43 @@ def make_sentence(quantity, tense):
 # for clarity on the integers for quantity and tense, the integers mean the following:
 # for tense, a 1 means past tense, a 2 means present tense, and a 3 means future tense
 # for quantity, a 1 means singular, a 2 means plural
+
 def main():
-    print('\nWelcome to the Turing Test Sentence Generator!\nThe program will print 6 unique sentences.\n') 
-    sentence_count = 1
-    while sentence_count < 7:
-        if sentence_count == 1:
-            make_sentence(1, 1)
-            sentence_count += 1
-        elif sentence_count == 2:
-            make_sentence(1, 2)
-            sentence_count += 1
-        elif sentence_count == 3:
-            make_sentence(1, 3)
-            sentence_count += 1
-        elif sentence_count == 4:
-            make_sentence(2, 1)
-            sentence_count += 1
-        elif sentence_count == 5:
-            make_sentence(2, 2)
-            sentence_count += 1
-        elif sentence_count == 6:
-            make_sentence(2,3)
-            sentence_count += 1
+    # program will ask if the user would like to generate sentences, close if they do not, and have the user retry if there is an invalid input
+    # output is taken into consideration, using empty print() statements in a couple places to make the output visually appealing on screen
+    print('\nWelcome to the Sentence Generator!\n') 
+    generate_sentences = True
+    while generate_sentences != False:
+        sentence_count = 1
+        user_continue = input('Generate Sentences? (yes or no): ')
+        if user_continue.lower() == 'yes':
+            generate_sentences = True
+            while sentence_count < 7:
+                if sentence_count == 1:
+                    print()
+                    make_sentence(1, 1)
+                    sentence_count += 1
+                elif sentence_count == 2:
+                    make_sentence(1, 2)
+                    sentence_count += 1
+                elif sentence_count == 3:
+                    make_sentence(1, 3)
+                    sentence_count += 1
+                elif sentence_count == 4:
+                    make_sentence(2, 1)
+                    sentence_count += 1
+                elif sentence_count == 5:
+                    make_sentence(2, 2)
+                    sentence_count += 1
+                elif sentence_count == 6:
+                    make_sentence(2,3)
+                    print()
+                    sentence_count += 1
+        elif user_continue.lower() == 'no':
+            generate_sentences = False
+            print('\nThank you. Goodbye.\n')
+        else:
+            print('\nInput is invalid, please try again!\n')
         
 # call and run the main function
 main()
