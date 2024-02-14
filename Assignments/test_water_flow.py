@@ -6,7 +6,7 @@ Assignment 5:
 Testing the Water Flow Calculator
 '''
 from pytest import approx
-from water_flow import water_column_height, pressure_gain_from_water_height, pressure_loss_from_pipe, pressure_loss_from_fittings, reynolds_number, pressure_loss_from_pipe_reduction
+from water_flow import water_column_height, pressure_gain_from_water_height, pressure_loss_from_pipe, pressure_loss_from_fittings, reynolds_number, pressure_loss_from_pipe_reduction, convert_kPa_to_psi
 import pytest
 
 def test_water_column_height():
@@ -71,6 +71,15 @@ def test_pressure_loss_from_pipe_reduction():
     assert pressure_loss_from_pipe_reduction(0.28687, 0, 1, 0.048692) == approx(0, abs = 0.001)
     assert pressure_loss_from_pipe_reduction(0.28687, 1.65, 471729, 0.048692) == approx(-163.744, abs = 0.001)
     assert pressure_loss_from_pipe_reduction(0.28687, 1.75, 500318, 0.048692) == approx(-184.182, abs = 0.001)
+
+def test_convert_kPa_to_psi():
+    '''
+    Test function for the convert_kPa_to_psi function.
+    This function checks for various scenarios by asserting expected results.
+    '''
+    assert convert_kPa_to_psi(15) == approx(2.18, abs = 0.01)
+    assert convert_kPa_to_psi(50) == approx(7.25, abs = 0.01)
+    assert convert_kPa_to_psi(100) == approx(14.50, abs = 0.01)
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
