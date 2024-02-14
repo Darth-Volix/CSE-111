@@ -154,7 +154,7 @@ def main():
     pressure += loss
 
     print(f"Pressure at house (kPa): {pressure:.1f} kilopascals")
-    print(f'Pressure at house (psi): {convert_kPa_to_psi(pressure):.1f} psi.')
+    print(f'Pressure at house (psi): {convert_kPa_to_psi(pressure):.1f} psi')
 
 
 if __name__ == "__main__":
