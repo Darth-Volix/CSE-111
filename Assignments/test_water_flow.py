@@ -6,7 +6,7 @@ Assignment 5:
 Testing the Water Flow Calculator
 '''
 from pytest import approx
-from water_flow import water_column_height, pressure_gain_from_water_height, pressure_loss_from_pipe, pressure_loss_from_fittings, reynolds_number
+from water_flow import water_column_height, pressure_gain_from_water_height, pressure_loss_from_pipe, pressure_loss_from_fittings, reynolds_number, pressure_loss_from_pipe_reduction
 import pytest
 
 def test_water_column_height():
@@ -62,6 +62,15 @@ def test_reynolds_number():
     assert reynolds_number(0.048692, 1.75) == approx(84922, abs = 1)
     assert reynolds_number(0.28687, 1.65) == approx(471729, abs = 1)
     assert reynolds_number(0.28687, 1.75) == approx(500318, abs = 1)
+
+def test_pressure_loss_from_pipe_reduction():
+    '''
+    Test function for the pressure_loss_from_pipe_reduction function.
+    This function checks for various scenarios by asserting expected results.
+    '''
+    assert pressure_loss_from_pipe_reduction(0.28687, 0, 1, 0.048692) == approx(0, abs = 0.001)
+    assert pressure_loss_from_pipe_reduction(0.28687, 1.65, 471729, 0.048692) == approx(-163.744, abs = 0.001)
+    assert pressure_loss_from_pipe_reduction(0.28687, 1.75, 500318, 0.048692) == approx(-184.182, abs = 0.001)
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.

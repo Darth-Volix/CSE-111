@@ -85,9 +85,22 @@ def reynolds_number(hydraulic_diameter, fluid_velocity):
     reynolds_number = (998.2 * hydraulic_diameter * fluid_velocity) / 0.0010016
     return reynolds_number
 
+def pressure_loss_from_pipe_reduction(larger_diameter, fluid_velocity, reynolds_number, smaller_diameter):
+    '''
+    Calculates the pressure loss due to pipe reduction.
 
+    Parameters:
+        larger_diameter (float): Diameter of the larger pipe section (in meters).
+        fluid_velocity (float): Velocity of the fluid in the pipe (in meters per second).
+        reynolds_number (float): Reynolds number for the flow.
+        smaller_diameter (float): Diameter of the smaller pipe section (in meters).
 
-
+    Returns:
+        float: Pressure loss (in kilopascals) due to pipe reduction.
+    '''
+    constant = (0.1 + 50 / reynolds_number) * ((larger_diameter / smaller_diameter) ** 4 - 1)
+    pressure_loss_pipe_reduction = (-constant * 998.2 * fluid_velocity ** 2) / 2000
+    return pressure_loss_pipe_reduction
 
 PVC_SCHED80_INNER_DIAMETER = 0.28687 # (meters)  11.294 inches
 PVC_SCHED80_FRICTION_FACTOR = 0.013  # (unitless)
@@ -96,7 +109,6 @@ SUPPLY_VELOCITY = 1.65               # (meters / second)
 HDPE_SDR11_INNER_DIAMETER = 0.048692 # (meters)  1.917 inches
 HDPE_SDR11_FRICTION_FACTOR = 0.018   # (unitless)
 HOUSEHOLD_VELOCITY = 1.75            # (meters / second)
-
 
 def main():
     tower_height = float(input("Height of water tower (meters): "))
