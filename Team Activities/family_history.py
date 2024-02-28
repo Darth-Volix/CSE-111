@@ -145,14 +145,17 @@ def print_marriages(marriages_dict, people_dict):
     print('Marriages')
     for key, marriage in marriages_dict.items():
         wedding_year = marriage[WEDDING_YEAR_INDEX]
+        # get husband information
         husband_index = marriage[HUSBAND_KEY_INDEX]
         husband = people_dict[husband_index]
         husband_name = husband[NAME_INDEX]
+        husband_age = wedding_year - husband[BIRTH_YEAR_INDEX]
+        # get wife information
         wife_index = marriage[WIFE_KEY_INDEX]
         wife = people_dict[wife_index]
         wife_name = wife[NAME_INDEX]
-        husband_age = wedding_year - husband[BIRTH_YEAR_INDEX]
         wife_age = wedding_year - wife[BIRTH_YEAR_INDEX]
+        # print results 
         print(f'{husband_name} {husband_age} > {wedding_year} < {wife_name} {wife_age}')
 
 
