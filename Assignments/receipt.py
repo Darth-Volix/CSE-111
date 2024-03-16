@@ -50,7 +50,7 @@ def main():
                     product_price = float(product[PRICE_INDEX])
 
                     total_items += quantity
-                    subtotal += product_price
+                    subtotal += (product_price * quantity)
 
                     # Print the product name, quantity, and price
                     print(f'{product_name}: {quantity} @ ${product_price}')
@@ -63,7 +63,7 @@ def main():
 
             # Print out the item totals and price totals    
             print(f'\nNumber of items: {total_items}')
-            print(f'Subtotal: ${subtotal}')
+            print(f'Subtotal: ${subtotal:.2f}')
             print(f'Sales Tax: ${sales_tax}')
             print(f'Total: ${total_price}\n')
 
