@@ -156,4 +156,5 @@ computer_choice_label.pack()
 play_again_button.pack()
  
 # Start the GUI event loop
-root.mainloop()
+if __name__ == "__main__":
+    root.mainloop()

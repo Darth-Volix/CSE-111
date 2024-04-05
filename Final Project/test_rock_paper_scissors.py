@@ -1,3 +1,10 @@
+'''
+04/06/2024
+CSE 111-07
+Nicholas Wilkins 
+Final Project: Rock Paper Scissors With GUI (Test Program)
+'''
+
 import pytest 
 from rock_paper_scissors import determine_winner
 
