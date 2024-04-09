@@ -1,0 +1,36 @@
+Please respond thoroughly (at least two sentences for each question) to
+the following three questions.
+
+1. Describe an experience you had this semester where you saw the power of
+functions.
+
+I saw this when we were doing the chemistry assignment. That particular assignment was 
+veru complex in the tasks that it had to comeplete, and it would have been very hard 
+to write a program that completes the tasks necessary. By splitting the tasks into small
+but manageable functions, it makes the program easy to write and understand. It also makes
+it easy to make your code reusable and more efficient. It's hard to put into words, but I 
+can't possibly imagine writing programs without using functions at this point. When I 
+first learned about functions, I failed to see why they were useful and did not like the 
+idea of trying to learn a new and different wat of programming. I now know that I was 
+wrong and I love functions.
+
+2. In your judgment, what is the value of test functions?
+
+Test functions serve a very valuable purpose. They allow you to put your functions thorough
+a series of tests to ensure that your function outputs expected results. Basically, they 
+allow you to make sure that your function correctly answers questions you already know the
+answer to. This also allows you to document and show to others that your functions are working
+correctly. They will also save you time since you do not have to run your program several 
+times yourself to see if it works as expected. 
+
+3. Describe your process for troubleshooting and fixing a program that
+has a problem. What is one thing you can do to improve your process?
+
+To be honest, I need to be better at writing test functions for the programs that I write. 
+Usually I run the program and see if any errors come back immediately upon running it. If 
+so, I will read the error and go the line mentioned in the code and correct the logic or 
+syntax. I then rerun the program several times and input information that I know should yield
+a certain result. If it does not, I examine my code and try to figure out what went wrong.
+If I got better at being in the habit of writing test functions for my programs, I could save
+myself significant time. This will be very similar to how I got in the habit of writing my 
+programs in functions instead of unbroken code. Practice makes perfect! 
